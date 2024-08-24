@@ -9,6 +9,6 @@ namespace CaterServ.Services.Abstract
 		Task UpdateProduct(UpdateProductDto productDto);
 		Task CreateProduct(CreateProductDto productDto);
 		Task DeleteProduct(string id);
-
+		Task<List<ResultProductAndCategoryDto>> GetProductAndCategories();
 	}
 }

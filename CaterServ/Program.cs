@@ -6,12 +6,24 @@ using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 // Add services to the container.
 
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IAboutService, AboutService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<ICheffService, CheffService>();
+builder.Services.AddScoped<IContactService, ContactService>();
+builder.Services.AddScoped<IDashboardService, DashboardService>();
+builder.Services.AddScoped<IEventService, EventService>();
+builder.Services.AddScoped<IEventCategoryService, EventCategoryService>();
+builder.Services.AddScoped<IFeatureService, FeatureService>();
+builder.Services.AddScoped<IMessageService, MessageService>();
+builder.Services.AddScoped<IServicesService, ServicesService>();
+builder.Services.AddScoped<ITestimonialService, TestimonialService>();
 
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
 
 
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
