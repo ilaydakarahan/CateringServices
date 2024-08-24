@@ -46,7 +46,7 @@ namespace CaterServ.Services.Concrete
         public async Task UpdateService(UpdateServiceDto updateServiceDto)
         {
             var values = _mapper.Map<Service>(updateServiceDto);
-            await _serviceCollection.FindOneAndReplaceAsync(x=>x.ServiceId == values.ServiceId , values)
+            await _serviceCollection.FindOneAndReplaceAsync(x => x.ServiceId == values.ServiceId, values);
         }
     }
 }

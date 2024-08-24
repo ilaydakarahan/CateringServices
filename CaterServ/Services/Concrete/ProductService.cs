@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CaterServ.DataAccess.Entities;
+using CaterServ.Dtos.CategoryDtos;
 using CaterServ.Dtos.ProductDtos;
 using CaterServ.Services.Abstract;
 using CaterServ.Settings;
@@ -10,6 +11,7 @@ namespace CaterServ.Services.Concrete
 	public class ProductService : IProductService
 	{
 		private readonly IMongoCollection<Product> _productCollection;
+		private readonly IMongoCollection<Category> _categoryCollection;
 		private readonly IMapper _mapper;
 
 		public ProductService(IMapper mapper, IDatabaseSettings databaseSettings)
@@ -18,6 +20,7 @@ namespace CaterServ.Services.Concrete
 			var client = new MongoClient(databaseSettings.ConnectionString);
 			var database = client.GetDatabase(databaseSettings.DatabaseName);
 			_productCollection = database.GetCollection<Product>(databaseSettings.ProductCollectionName);
+			_categoryCollection = database.GetCollection<Category>(databaseSettings.CategoryCollectionName);
 			//productcollectionname veritabanına product sınıfını adını çoğul yazar
 		}
 
@@ -38,7 +41,7 @@ namespace CaterServ.Services.Concrete
 			return _mapper.Map<List<ResultProductDto>>(values);
 		}
 
-		public async Task<ResultProductDto> GetProductById(string id)
+        public async Task<ResultProductDto> GetProductById(string id)
 		{
 			var value = await _productCollection.Find(x=>x.ProductId == id).FirstOrDefaultAsync();
 			return _mapper.Map<ResultProductDto>(value);
@@ -50,5 +53,33 @@ namespace CaterServ.Services.Concrete
 			await _productCollection.FindOneAndReplaceAsync(x=>x.ProductId == product.ProductId, product);
 			//Önce bul sonra değiştir, product nesnesinden gelen id ye eşit olanı bul ve bunu product'tan gelen değer ile değiştir.
 		}
+
+
+        public async Task<List<ResultProductAndCategoryDto>> GetProductAndCategories()
+        {
+            var productlist = await _productCollection.AsQueryable().ToListAsync();
+
+			List<ResultProductAndCategoryDto> results = new List<ResultProductAndCategoryDto>();
+			foreach (var item in productlist)
+			{
+				var categories = _categoryCollection.Find(x => x.CategoryId == item.Category.CategoryId).FirstOrDefault();
+
+				if(categories != null)
+				{
+					var value = _mapper.Map<ResultCategoryDto>(categories);
+
+					results.Add(new ResultProductAndCategoryDto
+					{
+						Description = item.Description,
+						Category = value,
+						ImageUrl= item.ImageUrl,
+						Price= item.Price,
+						ProductId= item.ProductId,
+						ProductName= item.ProductName
+					});
+				}
+			}
+			return results;
+        }
 	}
 }
