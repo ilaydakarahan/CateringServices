@@ -1,0 +1,52 @@
+﻿@model CreateBookingDto
+@{
+    ViewData["Title"] = "CreateBooking";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <br />
+                <br />
+                <h2>Rezervasyon Ekleme Sayfası</h2>
+            </div>
+            <div class="card-body">
+                <div class="basic-form text-muted">
+                    <form method="post">
+                        <label>Ad Soyad</label>
+                        <input type="text" class="form-control" asp-for="NameSurname" />
+                        <br />
+                        <label>İl</label>
+                        <input type="text" class="form-control" asp-for="City" />
+                        <br />
+                        <label>İlçe</label>
+                        <input type="text" class="form-control" asp-for="District"></input>
+                        <br />
+                        <label>Mahalle</label>
+                        <input type="text" class="form-control" asp-for="Neighbourhood" />
+                        <br />
+                        <label>Telefon</label>
+                        <input type="text" class="form-control" asp-for="Phone" />
+                        <br />
+                        <label>Kişi Sayısı</label>
+                        <input type="text" class="form-control" asp-for="PersonCount" />
+                        <br />
+                        <label>Email</label>
+                        <input type="email" class="form-control" asp-for="Email" />
+                        <br />
+                        <label>Tarih</label>
+                        <input type="date" class="form-control" asp-for="Date" />
+                        <br />
+                        <label>Etkinlik Türü</label>
+                        <select type="text" class="form-control" asp-items="ViewBag.CategoryList" asp-for="EventCategoryId"></select>
+                        <br />
+                        <button class="btn btn-outline-primary"> Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

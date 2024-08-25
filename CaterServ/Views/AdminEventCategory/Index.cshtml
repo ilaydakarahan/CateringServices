@@ -1,0 +1,44 @@
+﻿@model List<ResultEventCategoryDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <br />
+            <h1 class="card-title">Etkinlik Kategorileri Listesi</h1>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kategori Adı</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th>@count</th>
+                                <td>@item.CategoryName</td>
+                                <td>
+                                    <a href="/AdminEventCategory/DeleteEventCategory/@item.EventCategoryId" class="btn btn-outline-danger btn-lg"> <i class="fa fa-trash"></i> Sil</a>
+                                    <a href="/AdminEventCategory/UpdateEventCategory/@item.EventCategoryId" class="btn btn-outline-success btn-lg"><i class="fa fa-edit"></i> Güncelle</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <br />
+                <a href="/AdminEventCategory/CreateEventCategory" class="btn btn-outline-primary"> Yeni Hakkımızda Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>

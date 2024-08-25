@@ -1,0 +1,70 @@
+﻿@model List<ResultBookingDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <br />
+            <br />
+            <h2 class="card-title">Rezervasyon Listesi</h2>
+        </div>
+
+        <div class="card-body">
+            <label>Rezervasyon Ara</label>
+            <form method="post" asp-action="SearchBooking" asp-controller="AdminBooking">
+                <input type="search" class="form-control" name="NameSurname" placeholder="Ad Soyad" />
+                <br />
+                <input type="submit" value="Ara" class="btn btn-outline-primary" />
+            </form>
+            @if (TempData["allbooking"] != null)
+            {
+                <br />
+                <a href="/AdminBooking/Index/" class="btn btn-outline-danger"> <i class="fa fa-arrow-left"></i> Filtreyi Kaldır</a>
+                <br />
+            }
+
+            <br />
+            <div class="table-responsive">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ad Soyad</th>
+                            <th>Kişi Sayısı</th>
+                            <th>Tarih</th>
+                            <th>Telefon</th>
+                            <th>Email</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th>@count</th>
+                                <td>@item.NameSurname</td>
+                                <td>@item.PersonCount</td>
+                                <td>@(((DateTime)item.Date).ToShortDateString())</td>
+                                <td>@item.Phone</td>
+                                <td>@item.Email</td>
+                                <td>
+                                    <a href="/AdminBooking/DeleteBooking/@item.BookingId" class="btn btn-outline-danger btn-lg"> <i class="fa fa-trash"></i> Sil</a>
+                                    <a href="/AdminBooking/UpdateBooking/@item.BookingId" class="btn btn-outline-success btn-lg"><i class="fa fa-edit"></i> Güncelle</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <br />
+                <a href="/AdminBooking/CreateBooking" class="btn btn-outline-primary"> Yeni Rezervasyon Oluştur</a>
+            </div>
+        </div>
+    </div>
+</div>
+

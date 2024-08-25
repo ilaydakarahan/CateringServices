@@ -12,7 +12,6 @@ namespace CaterServ.Dtos.BookingDtos
 
         public string EventCategoryId { get; set; }
         public string PersonCount { get; set; }
-        public bool Vegeteratian { get; set; }
         public string Phone { get; set; }
         public DateTime Date { get; set; }
         public string Email { get; set; }

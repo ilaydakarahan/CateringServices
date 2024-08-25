@@ -1,0 +1,49 @@
+﻿@model List<ResultCheffDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <br />
+            <h1 class="card-title">Şef Listesi</h1>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Resim</th>
+                            <th>Ad Soyad</th>
+                            <th>Ünvan</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th>@count</th>
+                                <td><img src="@item.ImageUrl" style="width:200px; height:200px" /></td>
+                                <td>@item.CheffName</td>
+                                <td>@item.Title</td>
+                                <td>
+                                    <a href="/AdminCheff/DeleteCheff/@item.CheffId" class="btn btn-outline-danger btn-lg"> <i class="fa fa-trash"></i> Sil</a>
+                                    <a href="/AdminCheff/UpdateCheff/@item.CheffId" class="btn btn-outline-success btn-lg"><i class="fa fa-edit"></i> Güncelle</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <br />
+                <a href="/AdminCheff/CreateCheff" class="btn btn-outline-primary"> Yeni Şef Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
+

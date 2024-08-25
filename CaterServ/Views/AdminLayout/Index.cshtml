@@ -1,23 +1,31 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
-<!DOCTYPE html>
 <html lang="en">
 
 @await Component.InvokeAsync("_AdminHeadComponentPartial")
 
 <body>
-    @await Component.InvokeAsync("_AdminPreLoaderComponentPartial")
 
-    <div id="main-wrapper">      
+    <div id="preloader">
+        @await Component.InvokeAsync("_AdminPreloaderComponentPartial")
+    </div>
+
+    <div id="main-wrapper">
 
         @await Component.InvokeAsync("_AdminNavbarComponentPartial")
 
         @await Component.InvokeAsync("_AdminSidebarComponentPartial")
 
-        @RenderBody()
+        <div class="content-body">
+
+            <div class="container-fluid mt-3">
+
+                @RenderBody()
+
+            </div>
+        </div>
 
         @await Component.InvokeAsync("_AdminFooterComponentPartial")
 
