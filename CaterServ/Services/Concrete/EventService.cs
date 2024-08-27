@@ -44,28 +44,29 @@ namespace CaterServ.Services.Concrete
             return _mapper.Map<ResultEventDto>(value);
         }
 
-        public async Task<List<ResultEventDto>> GetEventsAndCategories()
-        {
-            //Etkinlikleri kategorileriyle birlikte listeleme metodu
-            var events = await _eventCollection.AsQueryable().ToListAsync();
-            List<ResultEventDto> results = new List<ResultEventDto>();
-            foreach (var item in events)
-            {
-                var categories = _eventCollection.Find(x => x.EventCategoryId == item.EventCategoryId).FirstOrDefault();
-                if(categories != null)
-                {
-                    var mapped = _mapper.Map<ResultEventCategoryDto>(categories);
-                    results.Add(new ResultEventDto
-                    {
-                        EventCategoryId = item.EventCategoryId,
-                        EventId = item.EventId,
-                        EventCategory = mapped,
-                        ImageUrl = item.ImageUrl
-                    });               
-                }
-            }
-            return results;
-        }
+        //public async Task<List<ResultEventDto>> GetEventsAndCategories()
+        //{
+        //    //Etkinlikleri kategorileriyle birlikte listeleme metodu
+
+        //    var events = await _eventCollection.AsQueryable().ToListAsync();
+        //    List<ResultEventDto> results = new List<ResultEventDto>();
+        //    foreach (var item in events)
+        //    {
+        //        var categories = _eventCollection.Find(x => x.EventCategoryId == item.EventCategoryId).FirstOrDefault();
+        //        if(categories != null)
+        //        {
+        //            var mapped = _mapper.Map<ResultEventCategoryDto>(categories);
+        //            results.Add(new ResultEventDto
+        //            {
+        //                EventCategoryId = item.EventCategoryId,
+        //                EventId = item.EventId,
+        //                EventCategory = mapped,
+        //                ImageUrl = item.ImageUrl
+        //            });               
+        //        }
+        //    }
+        //    return results;
+        //}
 
         public async Task UpdateEvent(UpdateEventDto eventDto)
         {

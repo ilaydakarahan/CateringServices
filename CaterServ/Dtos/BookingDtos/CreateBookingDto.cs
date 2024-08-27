@@ -1,6 +1,4 @@
-﻿using CaterServ.Dtos.EventCategoryDtos;
-
-namespace CaterServ.Dtos.BookingDtos
+﻿namespace CaterServ.Dtos.BookingDtos
 {
     public class CreateBookingDto
     {
@@ -8,7 +6,6 @@ namespace CaterServ.Dtos.BookingDtos
         public string District { get; set; }
         public string Neighbourhood { get; set; }
         public string NameSurname { get; set; }
-
         public string EventCategoryId { get; set; }
         public string PersonCount { get; set; }
         public string Phone { get; set; }

@@ -8,7 +8,7 @@ namespace CaterServ.DataAccess.Entities
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string EventCategoryId { get; set; }
-        public string CategoryName { get; set; }
+        public string EventCategoryName { get; set; }
 
         [BsonIgnore]
         public List<Event> Events { get; set; }

@@ -1,0 +1,31 @@
+﻿@model CreateEventDto
+@{
+    ViewData["Title"] = "CreateEvent";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <br />
+                <br />
+                <h2>Etkinlik Ekleme Sayfası</h2>
+            </div>
+            <div class="card-body">
+                <div class="basic-form text-muted">
+                    <form method="post">
+                        <label>Resim</label>
+                        <input type="text" class="form-control" asp-for="ImageUrl" />
+                        <br />
+                        <label>Etkinlik Türü</label>
+                        <select type="text" class="form-control" asp-items="ViewBag.EventCategoryList" asp-for="EventCategoryName"></select>
+                        <br />
+                        <button class="btn btn-outline-primary"> Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

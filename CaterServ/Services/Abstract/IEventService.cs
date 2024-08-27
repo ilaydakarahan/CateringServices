@@ -9,6 +9,6 @@ namespace CaterServ.Services.Abstract
         Task UpdateEvent(UpdateEventDto eventDto);
         Task CreateEvent(CreateEventDto eventDto);
         Task DeleteEvent(string id);
-        Task<List<ResultEventDto>> GetEventsAndCategories();
+        //Task<List<ResultEventDto>> GetEventsAndCategories();
     }
 }

@@ -15,7 +15,7 @@ namespace CaterServ.ViewComponents.Default
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var value = await _eventService.GetEventsAndCategories();
+            var value = await _eventService.GetAllEvents();
             var categoryList = await _eventCategoryService.GetAllEventCategory();
             ViewBag.categoryList = categoryList;
             return View(value);

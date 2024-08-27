@@ -32,7 +32,7 @@ namespace CaterServ.Controllers
             List<SelectListItem> categoryList = (from x in value
                                                  select new SelectListItem
                                                  {
-                                                     Text = x.CategoryName,
+                                                     Text = x.EventCategoryName,
                                                      Value = x.EventCategoryId
                                                  }).ToList();
             ViewBag.CategoryList = categoryList;
@@ -62,7 +62,7 @@ namespace CaterServ.Controllers
             List<SelectListItem> categoryList = (from x in values
                                                  select new SelectListItem
                                                  {
-                                                     Text = x.CategoryName,
+                                                     Text = x.EventCategoryName,
                                                      Value = x.EventCategoryId
                                                  }).ToList();
             ViewBag.CategoryList = categoryList;

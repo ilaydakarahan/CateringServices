@@ -1,6 +1,6 @@
-﻿@model CreateEventCategoryDto
+﻿@model CreateFeatureDto
 @{
-    ViewData["Title"] = "CreateEventCategory";
+    ViewData["Title"] = "CreateFeature";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
@@ -8,13 +8,17 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h2>Yeni Kategori Ekleme Sayfası</h2>
+                <br />
+                <h2>Öne Çıkan Ekleme Sayfası</h2>
             </div>
             <div class="card-body">
                 <div class="basic-form">
                     <form method="post">
-                        <label>Kategori Adı</label>
-                        <input type="text" class="form-control" asp-for="EventCategoryName" />
+                        <label>Başlık</label>
+                        <input type="text" class="form-control" asp-for="Title" />
+                        <br />
+                        <label>Resim Ekleyin</label>
+                        <input type="text" class="form-control" asp-for="ImageUrl" />
                         <br />
                         <button class="btn btn-outline-primary"><i class="fa fa-pencil"></i> Kaydet</button>
                     </form>

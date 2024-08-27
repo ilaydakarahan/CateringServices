@@ -1,4 +1,4 @@
-﻿@model List<ResultEventCategoryDto>
+﻿@model List<ResultContactDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
@@ -9,7 +9,7 @@
     <div class="card">
         <div class="card-header">
             <br />
-            <h1 class="card-title">Etkinlik Kategorileri Listesi</h1>
+            <h1 class="card-title">İletişim Bilgileri</h1>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -17,7 +17,9 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Kategori Adı</th>
+                            <th>Adres</th>
+                            <th>Email</th>
+                            <th>Telefon</th>
                             <th>İşlemler</th>
                         </tr>
                     </thead>
@@ -27,18 +29,22 @@
                             count++;
                             <tr>
                                 <th>@count</th>
-                                <td>@item.EventCategoryName</td>
+                                <td>@item.Adress</td>
+                                <td>@item.MailUs</td>
+                                <td>@item.Phone</td>
                                 <td>
-                                    <a href="/AdminEventCategory/DeleteEventCategory/@item.EventCategoryId" class="btn btn-outline-danger btn-lg"> <i class="fa fa-trash"></i> Sil</a>
-                                    <a href="/AdminEventCategory/UpdateEventCategory/@item.EventCategoryId" class="btn btn-outline-success btn-lg"><i class="fa fa-edit"></i> Güncelle</a>
+                                    <a href="/AdminContact/DeleteContact/@item.ContactId" class="btn btn-outline-danger btn-lg"> <i class="fa fa-trash"></i> Sil</a>
+                                    <a href="/AdminContact/UpdateContact/@item.ContactId" class="btn btn-outline-success btn-lg"><i class="fa fa-edit"></i> Güncelle</a>
                                 </td>
                             </tr>
                         }
                     </tbody>
                 </table>
                 <br />
-                <a href="/AdminEventCategory/CreateEventCategory" class="btn btn-outline-primary"> Yeni Kategori Ekle</a>
+                <a href="/AdminContact/CreateContact" class="btn btn-outline-primary"> Yeni İletişim Bilgisi Ekle</a>
             </div>
         </div>
     </div>
 </div>
+
+

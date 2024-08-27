@@ -3,6 +3,6 @@
     public class UpdateEventCategoryDto
     {
         public string EventCategoryId { get; set; }
-        public string CategoryName { get; set; }
+        public string EventCategoryName { get; set; }
     }
 }

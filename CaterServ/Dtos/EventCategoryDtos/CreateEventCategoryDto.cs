@@ -2,6 +2,6 @@
 {
     public class CreateEventCategoryDto
     {
-        public string CategoryName { get; set; }
+        public string EventCategoryName { get; set; }
     }
 }

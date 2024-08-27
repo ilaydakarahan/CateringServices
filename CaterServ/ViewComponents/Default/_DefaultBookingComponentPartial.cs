@@ -18,7 +18,7 @@ namespace CaterServ.ViewComponents.Default
             List<SelectListItem> result = (from x in values
                                            select new SelectListItem
                                            {
-                                               Text = x.CategoryName,
+                                               Text = x.EventCategoryName,
                                                Value = x.EventCategoryId
                                            }).ToList();
             ViewBag.eventcategory = result;

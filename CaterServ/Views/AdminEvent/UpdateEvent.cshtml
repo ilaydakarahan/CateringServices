@@ -1,6 +1,6 @@
-﻿@model UpdateEventCategoryDto
+﻿@model UpdateEventDto
 @{
-    ViewData["Title"] = "UpdateEventCategory";
+    ViewData["Title"] = "UpdateEvent";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
@@ -9,14 +9,17 @@
         <div class="card">
             <div class="card-header">
                 <br />
-                <h1>Kategori Güncelleme Sayfası</h1>
+                <h4>Etkinlik Güncelleme Sayfası</h4>
             </div>
             <div class="card-body">
                 <div class="basic-form text-muted">
                     <form method="post">
-                        <input type="hidden" class="form-control" asp-for="EventCategoryId" />
-                        <label>Kategori Adı</label>
-                        <input type="text" class="form-control" asp-for="EventCategoryName" />
+                        <input type="hidden" class="form-control" asp-for="EventId" />  
+                        <label>Görsel</label>
+                        <input type="text" class="form-control" asp-for="ImageUrl" />
+                        <br />
+                        <label>Etkinlik Kategorisi</label>
+                        <select type="text" class="form-control" asp-items="ViewBag.EventCategoryList" asp-for="EventCategoryName"></select>
                         <br />
                         <br />
                         <button class="btn btn-outline-primary"><i class="fa fa-edit"></i> Güncelle</button>

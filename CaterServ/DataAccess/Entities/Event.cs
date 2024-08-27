@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
+using CaterServ.Dtos.EventCategoryDtos;
 
 namespace CaterServ.DataAccess.Entities
 {
@@ -9,7 +10,7 @@ namespace CaterServ.DataAccess.Entities
         [BsonRepresentation(BsonType.ObjectId)]
         public string EventId { get; set; }
         public string ImageUrl { get; set; }
-        public string EventCategoryId { get; set; }
+        public string EventCategoryName { get; set; }
 
         [BsonIgnore]
         public EventCategory EventCategory { get; set; }
