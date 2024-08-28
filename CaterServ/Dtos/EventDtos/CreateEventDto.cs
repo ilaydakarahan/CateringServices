@@ -5,5 +5,6 @@
         public string EventId { get; set; }
         public string ImageUrl { get; set; }
         public string EventCategoryName { get; set; }
+        public string EventCategoryId { get; set; }
     }
 }

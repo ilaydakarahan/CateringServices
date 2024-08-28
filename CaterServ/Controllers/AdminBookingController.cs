@@ -58,6 +58,7 @@ namespace CaterServ.Controllers
         {
             var value = await _bookingService.GetBookingById(id);
             var prop = _mapper.Map<UpdateBookingDto>(value);
+
             var values = await _eventCategoryService.GetAllEventCategory();
             List<SelectListItem> categoryList = (from x in values
                                                  select new SelectListItem

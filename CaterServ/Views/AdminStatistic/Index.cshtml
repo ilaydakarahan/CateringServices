@@ -1,0 +1,64 @@
+﻿@model List<ResultStatisticDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <br />
+            <h1 class="card-title">İstatistikler Listesi</h1>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td> 1.Özellik İkonu</td>
+                            <td> 1.Özellik Başlığı</td>
+                            <td> 1.Özellik Değeri</td>
+                            <td> 2.Özellik İkonu</td>
+                            <td> 2.Özellik Başlığı</td>
+                            <td> 2.Özellik Değeri</td>
+                            <td> 3.Özellik İkonu</td>
+                            <td> 3.Özellik Başlığı</td>
+                            <td> 3.Özellik Değeri</td>
+                            <td>İşlemler</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th>@count</th>
+                                <td>@item.Icon1</td>
+                                <td>@item.Title1</td>
+                                <td>@item.Amount1</td>
+                                <td>@item.Icon2</td>
+                                <td>@item.Title2</td>
+                                <td>@item.Amount2</td>
+                                <td>@item.Icon3</td>
+                                <td>@item.Title3</td>
+                                <td>@item.Amount3</td>
+                                <td>
+                                    <a href="/AdminStatistic/DeleteStatistic/@item.StatisticId" class="btn btn-outline-danger btn-lg"> <i class="fa fa-trash"></i> Sil</a>
+                                    <a href="/AdminStatistic/UpdateStatistic/@item.StatisticId" class="btn btn-outline-success btn-lg"><i class="fa fa-edit"></i> Güncelle</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <br />
+                <a href="/AdminStatistic/CreateStatistic" class="btn btn-outline-primary"> <i class="fa fa-pencil"></i> Yeni Istatistik Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

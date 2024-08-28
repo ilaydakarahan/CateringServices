@@ -9,7 +9,7 @@ namespace CaterServ.Dtos.EventCategoryDtos
         public string EventCategoryName { get; set; }
 
         //[BsonIgnore]
-        //public List<Event> Events { get; set; }
+        public List<Event> Events { get; set; }
         public List<Booking> Bookings { get; set; }
 
     }

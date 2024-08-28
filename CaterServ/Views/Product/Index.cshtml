@@ -1,40 +1,57 @@
 ﻿@model List<ResultProductDto>
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
     int count = 0;
 }
 
 
-<h3>Ürünler</h3>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <br />
+            <h1 class="card-title">Hizmetler Listesi</h1>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Resim</th>
+                            <th>Ürün Adı</th>
+                            <th>Ürün Açıklaması</th>
+                            <th>Ürün Fiyatı</th>
+                            <th>Ürün Kategorisi</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th>@count</th>
+                                <td><img src="@item.ImageUrl" style="height:75px ; width:75px" /></td>
+                                <td>@item.ProductName</td>
+                                <td>@item.Description</td>
+                                <td>@item.Price ₺</td>
+                                <td>@item.CategoryName</td>
 
-<table class="table table-bordered">
-    <tr>
-        <th>#</th>
-        <th>Resim</th>
-        <th>Ürün Adı</th>
-        <th>Ürün Açıklaması</th>
-        <th>Ürün Fiyatı</th>
-        <th>Ürün Kategorisi</th>
-        <th>İşlemler</th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        count++;
-        <tr>
-            <th>@count</th>
-            <td><img src="@item.ImageUrl" style="height:75px ; width:75px" /></td>
-            <td>@item.ProductName</td>
-            <td>@item.Description</td>
-            <td>@item.Price ₺</td>
-            <td>@item.CategoryName</td>
-            
 
-            <td> 
-                <a class="btn btn-danger" href="/Product/DeleteProduct/@item.ProductId">Sil</a>
-                <a class="btn btn-info" href="/Product/UpdateProduct/@item.ProductId">Güncelle</a>
-            </td>
-        </tr>
-    }
-</table>
-<a class="btn btn-primary" href="/Product/CreateProduct">Yeni Ürün Ekle</a>
+                                <td>
+                                    <a class="btn btn-danger" href="/Product/DeleteProduct/@item.ProductId">Sil</a>
+                                    <a class="btn btn-info" href="/Product/UpdateProduct/@item.ProductId">Güncelle</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <br />
+                <a href="/Product/CreateProduct" class="btn btn-outline-primary"> Yeni Ürün Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 

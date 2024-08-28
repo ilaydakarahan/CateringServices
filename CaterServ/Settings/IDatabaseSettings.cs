@@ -15,6 +15,7 @@
         public string FeatureCollectionName { get; set; }
         public string MessageCollectionName { get; set; }
         public string ServiceCollectionName { get; set; }
+        public string StatisticCollectionName { get; set; }
         public string TestimonialCollectionName { get; set; }
 
     }

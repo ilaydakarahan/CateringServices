@@ -49,7 +49,7 @@ namespace CaterServ.Services.Concrete
         public async Task UpdateEventCategory(UpdateEventCategoryDto eventCategoryDto)
         {
             var values = _mapper.Map<EventCategory>(eventCategoryDto);
-            await _eventCategoryCollection.FindOneAndReplaceAsync(x => x.EventCategoryId == values.EventCategoryId, values);
+            await _eventCategoryCollection.FindOneAndReplaceAsync(x => x.EventCategoryId == eventCategoryDto.EventCategoryId, values);
         }
     }
 }

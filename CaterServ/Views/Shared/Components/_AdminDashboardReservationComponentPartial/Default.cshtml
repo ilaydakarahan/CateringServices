@@ -1,0 +1,46 @@
+﻿@model List<ResultBookingDto>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="active-member">
+                    <div class="table-responsive">
+                        <table class="table table-xs mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Ad Soyad</th>
+                                    <th>İl</th>
+                                    <th>İlçe</th>
+                                    <th>Tarih</th>
+                                    <th>Telefon</th>
+                                    <th>Kişi Sayısı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.NameSurname</td>
+                                        <td>@item.City</td>
+                                        <td> <span>@item.District</span></td>
+                                        <td>
+                                            @(((DateTime)item.Date).ToShortDateString())
+                                        </td>
+                                        <td>@item.Phone</td>
+                                        <td>
+                                            <span>@item.PersonCount</span>
+                                        </td>
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

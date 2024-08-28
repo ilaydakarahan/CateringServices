@@ -21,6 +21,7 @@ builder.Services.AddScoped<IEventCategoryService, EventCategoryService>();
 builder.Services.AddScoped<IFeatureService, FeatureService>();
 builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<IServicesService, ServicesService>();
+builder.Services.AddScoped<IStatisticService, StatisticService>();
 builder.Services.AddScoped<ITestimonialService, TestimonialService>();
 
 

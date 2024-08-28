@@ -11,6 +11,7 @@ namespace CaterServ.Services.Concrete
     public class EventService : IEventService
     {
         private readonly IMongoCollection<Event> _eventCollection;
+        private readonly IMongoCollection<EventCategory> _eventCategoryCollection;
         private readonly IMapper _mapper;
         public EventService(IMapper mapper, IDatabaseSettings databaseSettings)
         {
@@ -18,6 +19,7 @@ namespace CaterServ.Services.Concrete
             var database = client.GetDatabase(databaseSettings.DatabaseName);
 
             _eventCollection = database.GetCollection<Event>(databaseSettings.EventCollectionName);
+            _eventCategoryCollection = database.GetCollection<EventCategory>(databaseSettings.EventCategoryCollectionName);
             _mapper = mapper;
         }
 
@@ -44,29 +46,29 @@ namespace CaterServ.Services.Concrete
             return _mapper.Map<ResultEventDto>(value);
         }
 
-        //public async Task<List<ResultEventDto>> GetEventsAndCategories()
-        //{
-        //    //Etkinlikleri kategorileriyle birlikte listeleme metodu
+        public async Task<List<ResultEventDto>> GetEventsAndCategories()
+        {
+            //Etkinlikleri kategorileriyle birlikte listeleme metodu
 
-        //    var events = await _eventCollection.AsQueryable().ToListAsync();
-        //    List<ResultEventDto> results = new List<ResultEventDto>();
-        //    foreach (var item in events)
-        //    {
-        //        var categories = _eventCollection.Find(x => x.EventCategoryId == item.EventCategoryId).FirstOrDefault();
-        //        if(categories != null)
-        //        {
-        //            var mapped = _mapper.Map<ResultEventCategoryDto>(categories);
-        //            results.Add(new ResultEventDto
-        //            {
-        //                EventCategoryId = item.EventCategoryId,
-        //                EventId = item.EventId,
-        //                EventCategory = mapped,
-        //                ImageUrl = item.ImageUrl
-        //            });               
-        //        }
-        //    }
-        //    return results;
-        //}
+            var events = await _eventCollection.AsQueryable().ToListAsync();
+            List<ResultEventDto> results = new List<ResultEventDto>();
+            foreach (var item in events)
+            {
+                var categories = _eventCategoryCollection.Find(x => x.EventCategoryId == item.EventCategoryId).FirstOrDefault();
+                if (categories != null)
+                {
+                    var mapped = _mapper.Map<ResultEventCategoryDto>(categories);
+                    results.Add(new ResultEventDto
+                    {
+                        EventCategoryId = item.EventCategoryId,
+                        ImageUrl = item.ImageUrl,
+                        EventId = item.EventId,
+                        EventCategory = mapped
+                    });
+                }
+            }
+            return results;
+        }
 
         public async Task UpdateEvent(UpdateEventDto eventDto)
         {

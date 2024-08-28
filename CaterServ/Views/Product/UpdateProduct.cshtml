@@ -1,29 +1,40 @@
 ﻿@model UpdateProductDto
 @{
     ViewData["Title"] = "UpdateProduct";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>Ürün Güncelleme Sayfası</h1>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <br />
+                <h1> Ürün Güncelleme Sayfası </h1>
+            </div>
+            <div class="card-body">
+                <div class="basic-form text-muted">
+                    <form method="post">
+                        <input type="hidden" class="form-control" asp-for="ProductId" />
+                        <label>Ürün Adı</label>
+                        <input type="text" class="form-control" asp-for="ProductName" />
+                        <br />
+                        <label>Resim</label>
+                        <input type="text" asp-for="ImageUrl" class="form-control" />
+                        <br />
+                        <label>Fiyat</label>
+                        <input type="text" class="form-control" asp-for="Price" />
+                        <br />
+                        <label>Açıklama</label>
+                        <input type="text" class="form-control" asp-for="Description" />
+                        <br />
+                        <label>kategori</label>
+                        <select asp-for="CategoryName" asp-items="@ViewBag.category" class="form-control"></select>
+                        <br />
+                        <button class="btn btn-primary">Ürünü Güncelle</button>
 
-
-<form method="post">
-    <input type="hidden" class="form-control" asp-for="ProductId" />
-    <label>Ürün Adı</label>
-    <input type="text" class="form-control" asp-for="ProductName" />
-    <br />
-    <label>Resim</label>
-    <input type="text" asp-for="ImageUrl" class="form-control" />
-    <br />
-    <label>Fiyat</label>
-    <input type="text" class="form-control" asp-for="Price" />
-    <br />
-    <label>Açıklama</label>
-    <input type="text" class="form-control" asp-for="Description" />
-    <br />
-    <label>kategori</label>
-    <select asp-for="CategoryName" asp-items="@ViewBag.category" class="form-control"></select>
-    <br />
-    <button class="btn btn-primary">Ürünü Güncelle</button>
-
-</form>
-
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

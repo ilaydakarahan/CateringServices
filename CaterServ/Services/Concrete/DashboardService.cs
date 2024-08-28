@@ -39,5 +39,20 @@ namespace CaterServ.Services.Concrete
 
             return resultDashboardDto;
         }
+
+        //public async Task<List<ResultDashboardDto>> GetDashboardAll()
+        //{
+        //    ResultDashboardDto resultDashboardDto = new ResultDashboardDto()
+        //    {
+        //        BookingCount = _bookingCollection.AsQueryable().Count(),
+        //        CategoryCount = _categoryCollection.AsQueryable().Count(),
+        //        ProductCount = _productCollection.AsQueryable().Count(),
+        //        MessageCount = _messageCollection.AsQueryable().Count(),
+        //        EventCount = _eventCollection.AsQueryable().Count()
+        //    };
+
+            
+
+        //}
     }
 }

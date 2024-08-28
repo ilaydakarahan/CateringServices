@@ -1,4 +1,57 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿<!-- Events Start -->
+@{
+    int number1 = 0;
+    int number2 = 0;
+}
+
+@model List<ResultEventDto>
+<div class="container-fluid event py-6">
+    <div class="container">
+        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Etkinliklerimiz</small>
+            <h1 class="display-5 mb-5">Kategorilere Göre Hizmet Görsellerimiz</h1>
+        </div>
+        <div class="tab-class text-center">
+            <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
+                <!--Etkinlik Kategorileri-->
+                @foreach (var item in ViewBag.categoryList as List<ResultEventCategoryDto>)
+                {
+                    number2++;
+                    <li class="nav-item p-2">
+                        <a class="d-flex mx-2 py-2 border border-primary bg-light rounded-pill  @(number2==1?"active":"")" data-bs-toggle="pill" href="#tab-@item.EventCategoryId">
+                            <span class="text-dark" style="width: 150px;">@item.EventCategoryName</span>
+                        </a>
+                    </li>
+                }
+
+            </ul>
+            <div class="tab-content">
+                @foreach (var item in Model)
+                {
+                    number1++;
+                    <div id="tab - @item.EventCategoryId" class="tab-pane fade show p-0 @(number1==1?"active":"")">
+                        <div class="row g-4">
+                            <div class="col-lg-12">
+                                <div class="row g-4">
+                                    @foreach (var item2 in Model.Where(x=>x.EventCategory.EventCategoryName == item.EventCategory.EventCategoryName))
+                                    {
+                                        <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                            <div class="event-img position-relative">
+                                                <img class="img-fluid rounded w-100" src="@item2.ImageUrl" alt="">
+                                                <div class="event-overlay d-flex flex-column p-4">
+                                                    <h4 class="me-auto">@item2.EventCategory.EventCategoryName</h4>
+                                                    <a href="@item2.ImageUrl" data-lightbox="event-1" class="my-auto"><i class="fas fa-search-plus text-dark fa-2x"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Events End -->

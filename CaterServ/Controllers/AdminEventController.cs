@@ -21,7 +21,7 @@ namespace CaterServ.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var values = await _eventService.GetAllEvents();  
+            var values = await _eventService.GetEventsAndCategories();  
             return View(values);
         }
 
@@ -34,7 +34,7 @@ namespace CaterServ.Controllers
                                               select new SelectListItem
                                               {
                                                   Text = x.EventCategoryName,
-                                                  Value = x.EventCategoryName
+                                                  Value = x.EventCategoryId.ToString()
                                               }).ToList();
             ViewBag.EventCategoryList = listItems;       //Liste türünde getirdik. adını viewbag ile taşıdık.
             return View();
@@ -63,7 +63,7 @@ namespace CaterServ.Controllers
                                                  select new SelectListItem
                                                  {
                                                      Text = x.EventCategoryName,
-                                                     Value = x.EventCategoryName
+                                                     Value = x.EventCategoryId.ToString()
                                                  }).ToList();
             ViewBag.EventCategoryList = categoryList;
             return View(prop);
