@@ -1,4 +1,4 @@
-﻿@model List<ResultProductDto>
+﻿@model List<ResultProductAndCategoryDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <br />
-            <h1 class="card-title">Hizmetler Listesi</h1>
+            <h1 class="card-title">Ürün Listesi</h1>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -36,7 +36,7 @@
                                 <td>@item.ProductName</td>
                                 <td>@item.Description</td>
                                 <td>@item.Price ₺</td>
-                                <td>@item.CategoryName</td>
+                                <td>@item.Category.CategoryName</td>
 
 
                                 <td>

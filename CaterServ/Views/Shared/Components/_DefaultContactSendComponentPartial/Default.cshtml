@@ -1,0 +1,11 @@
+﻿@model CreateMessageDto
+
+<div class="col-md-6 col-lg-7">
+    <p class="mb-4">Şikayet, öneri ve tüm sorularınız için bize ulaşabilirsiniz.</p>
+    <form method="post" asp-action="AddMessage" asp-controller="DefaultContact">
+        <input type="text" asp-for="NameSurname" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="Adınız Soyadınız">
+        <input type="email" asp-for="Email" class=" w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="Email Adresiniz">
+        <textarea asp-for="Description" class="w-100 form-control mb-4 p-3 border-primary bg-light" rows="4" cols="10" placeholder="Mesajınız"></textarea>
+        <button @* onclick="AddContact()" *@ class="w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill" type="submit">Gönder</button>
+    </form>
+</div>

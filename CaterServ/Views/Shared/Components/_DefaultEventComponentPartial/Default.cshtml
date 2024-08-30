@@ -29,13 +29,13 @@
                 @foreach (var item in Model)
                 {
                     number1++;
-                    <div id="tab - @item.EventCategoryId" class="tab-pane fade show p-0 @(number1==1?"active":"")">
+                    <div id="tab-@item.EventCategoryId" class="tab-pane fade show p-0 @(number1==1?"active":"")">
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
                                     @foreach (var item2 in Model.Where(x=>x.EventCategory.EventCategoryName == item.EventCategory.EventCategoryName))
                                     {
-                                        <div class="col-md-6 col-lg-3 wow bounceInUp" data-wow-delay="0.1s">
+                                        <div class="col-md-6 col-lg-3 ">
                                             <div class="event-img position-relative">
                                                 <img class="img-fluid rounded w-100" src="@item2.ImageUrl" alt="">
                                                 <div class="event-overlay d-flex flex-column p-4">

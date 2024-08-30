@@ -62,7 +62,7 @@ namespace CaterServ.Services.Concrete
 			List<ResultProductAndCategoryDto> results = new List<ResultProductAndCategoryDto>();
 			foreach (var item in productlist)
 			{
-				var categories = _categoryCollection.Find(x => x.CategoryId == item.Category.CategoryId).FirstOrDefault();
+				var categories = _categoryCollection.Find(x => x.CategoryId == item.CategoryId).FirstOrDefault();
 
 				if(categories != null)
 				{
@@ -70,12 +70,12 @@ namespace CaterServ.Services.Concrete
 
 					results.Add(new ResultProductAndCategoryDto
 					{
-						Description = item.Description,
-						Category = value,
+						Description = item.Description,						
 						ImageUrl= item.ImageUrl,
 						Price= item.Price,
 						ProductId= item.ProductId,
-						ProductName= item.ProductName
+						ProductName= item.ProductName,
+						Category = value
 					});
 				}
 			}

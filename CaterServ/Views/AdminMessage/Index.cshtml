@@ -30,6 +30,7 @@
                                 <th>@count</th>
                                 <td>@item.NameSurname</td>
                                 <td>@(item.Description.Length >= 30 ? item.Description.Substring(0, 30) : item.Description)</td>
+                                <td>@item.Email</td>
                                 <td>
                                     <a href="/AdminMessage/DeleteMessage/@item.MessageId" class="btn btn-outline-danger btn-lg"> <i class="fa fa-trash"></i> Sil</a>
                                     <a href="/AdminMessage/DetailMessage/@item.MessageId" class="btn btn-outline-success btn-lg"><i class="fa fa-search"></i> Detay</a>

@@ -13,7 +13,7 @@ namespace CaterServ.DataAccess.Entities
         public decimal Price { get; set; }
         public string Description { get; set; }
 
-        public string CategoryName { get; set; }
+        public string CategoryId { get; set; }
 
         [BsonIgnore]    //verilere erişmek için yaptık.veritabanına yansıtmıyoruz.
         public Category Category { get; set; }      //ilişki kurma
