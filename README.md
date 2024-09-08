@@ -51,6 +51,8 @@
 
 ![Screenshot_26](https://github.com/user-attachments/assets/67d3b7f6-078b-4f0f-bae1-257d5e6fcf70)
 
+![Screenshot_30](https://github.com/user-attachments/assets/b0fd53a5-c4ef-464e-8a5c-eb7bb1996fd4)
+
 ### Admin Alanı :
 
 ![Screenshot_3](https://github.com/user-attachments/assets/06eb906c-72d2-4499-b1cf-c31895037b42)
@@ -60,6 +62,8 @@
 ![Screenshot_17](https://github.com/user-attachments/assets/16d7dacd-c0bf-4f85-ba0d-22c410b1d148)
 
 ![Screenshot_16](https://github.com/user-attachments/assets/da4541f2-1ed3-4f6f-9630-506d10f4cbb6)
+
+![Screenshot_8](https://github.com/user-attachments/assets/d47f3b97-c104-4a33-87c6-d64580672b31)
 
 ![Screenshot_20](https://github.com/user-attachments/assets/20de5644-2325-48cb-8220-1d4a81ad347c)
 
